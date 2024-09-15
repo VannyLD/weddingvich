@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'Moul';
+    src: url('../fonts/Moul.eot');
+    src: url('../fonts/Moul.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Moul.woff2') format('woff2'),
+        url('../fonts/Moul.woff') format('woff'),
+        url('../fonts/Moul.ttf') format('truetype'),
+        url('../fonts/Moul.svg#Moul') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #0d1143;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.course {
+    width: 100%;
+    height: 100vh;
+    /* Set the height to fill the viewport */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    /* Center the video horizontally */
+    align-items: center;
+    /* Center the video vertically */
+    position: relative;
+    overflow: hidden;
+    /* Ensure the video doesn't overflow */
+}
+
+.course video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.button {
+    position: absolute;
+    z-index: 2;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px; /* Increase the padding value to expand the clickable area */
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+}
+
+.name-button p {
+    font-family: 'Noto Sans Khmer', sans-serif;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.btn img {
+    width: 200px; /* Adjust button size as needed */
+    height: auto;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    box-sizing: border-box;
+    padding: 10px; /* Added padding to increase clickable area */
+    border-radius: 5px;
+    background-color: #6e3061;
+    border: 1px solid #c8b286;
+    text-align: center;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+#pname {
+    font-family: 'Moul', sans-serif;
+    font-size: 25px;
+    color: #ffffff;
+    text-shadow:
+        -1px -1px 0 rgb(58, 15, 42),
+        1px -1px 0 rgb(58, 15, 42),
+        -1px 1px 0 rgb(58, 15, 42),
+        1px 1px 0 rgb(58, 15, 42),
+        1px 1px 0 rgba(54, 15, 48, 0.6),
+        2px 2px 0 rgba(54, 15, 48, 0.6),
+        3px 3px 0 rgba(54, 15, 48, 0.6),
+        4px 4px 0 rgba(54, 15, 48, 0.6),
+        5px 5px 0 rgba(54, 15, 48, 0.6);
+
+    animation: pns 7s infinite;
+    position: relative;
+    top: -50px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    line-height: 1.5; /* Adjust line-height if needed */
+    white-space: nowrap; /* Prevents the text from wrapping to a new line */
+}
+
+.line2 {
+    display: block; /* Ensures the next line starts on a new line */
+    margin-top: 10px; /* Adjust this value to control the spacing between the lines */
+}
+
+
+@keyframes pns {
+    0% {
+        transform: translateY(-100%) scale(1);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translateY(-50%) scale(1.1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%) scale(1);
+        opacity: 1;
+    }
+}
+
+
+.video-container {
+    display: none; /* Hide the video container initially */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Optional: dark overlay */
+    z-index: 2; /* Ensure it is above other content */
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

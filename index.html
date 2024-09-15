@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanny & Design - eWedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/open.css">
+    <script src="https://kit.fontawesome.com/1bf3845c05.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <style>
+        img {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+    <!-- Video as BG -->
+    <section class="course">
+        <video autoplay loop muted playsinline>
+            <source src="tomas/banner.webm" type="video/webm">
+        </video>
+    </section>
+
+    <!-- Button -->
+    <section class="button">
+        <div class="name-button">
+            <p id="pname">
+                <span class="line1">លោក សម្បត្តិ វណ្ណី</span><br>
+                <span class="line2">និង កញ្ញា រ៉េត ស៊ាកលីវ</span>
+            </p>
+            <span class="btn"><img src="tomas/btn.opening.png" alt="Open Invitation"></span>
+        </div>
+    </section>
+
+    <!-- Video Container -->
+    <div class="video-container" id="videoContainer" style="display: none;">
+        <video id="videoPlayer" autoplay muted playsinline>
+            <source src="tomas/open.webm" type="video/webm">
+        </video>
+    </div>
+
+    <!-- Audio -->
+    <audio id="song" loop>
+        <source src="mp3/start.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        let preloadedContent = '';
+
+        document.querySelector('.button').addEventListener('click', function () {
+            // Show the video container
+            document.querySelector('.video-container').style.display = 'block';
+            // Hide the button
+            document.querySelector('.name-button').style.display = 'none';
+
+            // Play the audio
+            var audioElement = document.getElementById("song");
+            audioElement.play(); // Start playing the audio
+
+            // Start preloading main.html
+            fetch('main.html')
+                .then(response => response.text())
+                .then(data => {
+                    preloadedContent = data;
+                })
+                .catch(error => console.error('Error preloading main.html:', error));
+        });
+
+        document.getElementById('videoPlayer').addEventListener('ended', function () {
+            // Redirect to another page when video ends
+            if (preloadedContent) {
+                const newWindow = window.open('', '_self');
+                newWindow.document.open();
+                newWindow.document.write(preloadedContent);
+                newWindow.document.close();
+            } else {
+                window.location.href = 'main.html';
+            }
+        });
+    </script>
+
+    <footer>
+        <!-- FOOTER CONTENT -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider-min.js"></script>
+        <script src="venobox/venobox.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Handle additional interactions or functionality if needed
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
